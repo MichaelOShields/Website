@@ -1,103 +1,312 @@
-import Image from "next/image";
+"use client";
+
+import Header from "./header";
+import { motion } from "framer-motion";
+import { JSX, ReactElement, ReactHTMLElement, useEffect, useState, type ReactNode } from "react";
+import React from "react";
+import { BADGE_CHECK_ICON, CPU_ICON, GRADUATION_CAP_ICON, MAP_ICON, SCHOOL_ICON } from "./svgs";
+import ProjectCard from "./projectcard";
+
+import logoWhite from "../public/logo-title-white.png";
+import antPng from "../public/ants.png";
+import inkwDemo from "../public/inkwell-demo.png";
+import webDemo from '../public/websiteDemo.png';
+
+type FadeProps = {
+  delay?: number;
+  className?: string;
+  children: ReactNode;
+};
+
+const Fade = ({ delay = 0, className, children }: FadeProps) => (
+  <motion.div
+    className={className}
+    initial={{ opacity: 0, y: 8 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, delay }}
+  >
+    {children}
+  </motion.div>
+);
+
+
+type WithChildren = { children?: ReactNode };
+
+// narrows ReactNode -> ReactElement<{children?: ReactNode}>
+// function isElementWithChildren(
+//   node: ReactNode
+// ): node is ReactElement<WithChildren> {
+//   return React.isValidElement(node);
+// }
+
+// export function extractText(node: ReactNode): string {
+//   if (node == null || typeof node === "boolean") return "";
+//   if (typeof node === "string" || typeof node === "number") return String(node);
+//   if (Array.isArray(node)) return node.map(extractText).join("");
+
+//   if (isElementWithChildren(node)) {
+//     return extractText(node.props.children);
+//   }
+
+//   return "";
+// }
+
+
+function highlight(code: string): string {
+  const tokens = code.split(/(\s+|\/\/.*|\/\*[\s\S]*?\*\/|".*?"|'.*?'|`.*?`|\b)/);
+
+  return tokens
+    .map((tok) => {
+      if (/^(function|return|if|else|for|while|const|let|var|class|import|export|new)\b/.test(tok)) {
+        return `<span class="kw">${tok}</span>`;
+      }
+      if (/^(string|number|boolean|any|void|ReactNode)\b/.test(tok)) {
+        return `<span class="type">${tok}</span>`;
+      }
+      if (/^".*?"|'.*?'|`.*?`$/.test(tok)) {
+        return `<span class="str">${tok}</span>`;
+      }
+      if (/^\d+(\.\d+)?$/.test(tok)) {
+        return `<span class="num">${tok}</span>`;
+      }
+      if (/^\/\/.*$/.test(tok) || /^\/\*[\s\S]*\*\/$/.test(tok)) {
+        return `<span class="comment">${tok}</span>`;
+      }
+      if (/^[{}()\[\];,.:<>]$/.test(tok)) {
+        return `<span class="punct">${tok}</span>`;
+      }
+      if (/(\+{1,2}|-{1,2}|==?=?|!=?=?|<=?|>=?|\*|\/|%|&&|\|\||!|=)/.test(tok)) {
+        return `<span class="op">${tok}</span>`;
+      }
+      return tok; // default, leave alone
+    })
+    .join("");
+}
+
+
+type TypewriterProps = {
+  delay?: number;
+  text: string;
+  speedMsPerChar?: number;
+};
+
+export function Typewriter({
+  delay = 0,
+  text,
+  speedMsPerChar = 50,
+}: TypewriterProps) {
+  const [out, setOut] = useState("");
+  const [endSymbol, setSymbol] = useState("▮");
+
+  useEffect(() => {
+    let i = 0;
+    let id: number | null = null;
+
+    const start = () => {
+      id = window.setInterval(() => {
+        i++;
+        setOut(text.slice(0, i));
+        if (i === text.length) setSymbol("");
+        if (i >= text.length && id) clearInterval(id);
+      }, speedMsPerChar);
+    };
+
+    const delayId = window.setTimeout(start, delay);
+
+    return () => {
+      if (id) clearInterval(id);
+      clearTimeout(delayId);
+    };
+  }, [text, delay, speedMsPerChar]);  
+  return (
+  <code dangerouslySetInnerHTML={{ __html: highlight(out + endSymbol) }} />
+  );
+}
+
+{/* <Fade delay={.2}>
+          <h1 className="title"><Typewriter text={"Michael Shields"} delay={0}></Typewriter></h1>
+        </Fade> */}
+
+// delay={50/1000 * ("Michael Shields".length) }
+const CODE_TEXT = `
+export default function File({ 
+displayTitle, filename, onClick, i, selectedFilePath, title, handleRightClick, path, accent_color 
+}: FileProps) {
+    // console.log(accent_color);
+    if (!accent_color) {
+        accent_color = 'none';
+    }
+    return (
+        <div
+          onClick={onClick}
+          title={title}
+          onContextMenu={(e) => {handleRightClick(e,"file", path)}}
+        >
+
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="featherfile feather-file-text"
+            >
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+                <polyline points="10 9 9 9 8 9" />
+            </svg>
+            <p className="file-title">{displayTitle}</p>
+
+        </div>
+    )
+
+}
+`;
+
+
+
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="page">
+      <Fade delay={0}>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <Header />
+
+      </Fade>
+      <div className="hero" role="main">
+        <Fade delay={.2}>
+          <h1 className="title">Michael Shields</h1>
+        </Fade>
+        <Fade delay={.35}><p className="subtitle">Computer Science</p></Fade>
+        <Fade delay={.5}><p className="location">
+          <span className="maroon">{GRADUATION_CAP_ICON}</span> <span className="orange">Virginia</span> <span className="maroon">Tech</span>
+          
+          </p></Fade>
+
+
+
+      </div>
+
+      <Fade className="resume" delay={.6}>
+
+          <div className="projects">
+            
+
+            <h2 className="resume-header">Projects</h2>
+
+            <Fade className="project-cards" delay={1}>
+                <ProjectCard
+                  title="Ant Colony Simulation"
+                  description="Using reinforcement learning to teach an ant with limited information to search for food."
+                  image={antPng}
+                  tags={["Python", "ML", "Pygame"]}
+                  link="https://github.com/MichaelOShields/Ant-Colony-Simulation"
+                />
+                <ProjectCard
+                    title="Inkwell"
+                    description="A minimalist note taking app, built for responsiveness and ease of use."
+                    image={inkwDemo}
+                    tags={["Tauri", "Rust", "React"]}
+                    link="https://inkwellnotes.com/"
+                    complete={false}
+                  />
+                <ProjectCard
+                    title="Website"
+                    description="A website overviewing my accomplishments."
+                    image={webDemo}
+                    tags={["NextJS", "React", "CSS"]}
+                    link="."
+                    newTab={false}
+                  />
+                <ProjectCard
+                    title="Text Cropping Algorithm"
+                    description="Using PIL to efficiently detect text in 500+ page documents and crop all margin whitespace."
+                    image="https://placehold.co/600x400?text=Text+Cropping"
+                    tags={["Python", "PIL", "Image Analysis"]}
+                    link="."
+                  />
+                <ProjectCard
+                    title="Drone Racing Visualization"
+                    description="Using public data on drone racing to generate immersive 3D replays of races."
+                    image="https://placehold.co/600x400?text=Drone+Racing"
+                    tags={["React", "Three.js", "Rust"]}
+                    link="."
+                  />
+                <ProjectCard
+                    title="Gimkit Automation"
+                    description="Playing an education game, learning answers, interacting with the website to buy upgrades."
+                    image="https://placehold.co/600x400?text=Gimkit+Bot"
+                    tags={["Python", "Selenium"]}
+                    link="."
+                  />
+            </Fade>
+
+
+          </div>
+
+          <div className="education">
+            
+
+            <h2 className="resume-header">Education</h2>
+
+            <Fade className="education-nodes" delay={1}>
+              
+              <div className="yorktown education-node">
+                <div className="education-header">
+                  <span style={{ color: "rgb(164,188,220)" }}>Yorktown</span>{" "}
+                  <span style={{ color: "rgb(164,188,220)" }}>High</span>{" "}
+                  <span style={{ color: "rgb(164,188,220)" }}>School</span>
+                </div>
+                <div className="education-subheader">{MAP_ICON} Arlington, VA</div>
+                <div className="education-subheader">SAT 1560</div>
+                <div className="education-subheader">GPA 4.3</div>
+
+
+                <div className="education-resume">
+
+
+                  <div className="education-item-header">
+                    <span className="blue">{CPU_ICON}</span> <span className="blue">Computer Science Club</span>
+                  </div>
+                  <div className="education-item-subheader">
+
+                    {`Participated in competitions\nAttended weekly meetings\nSolved puzzles`}
+
+                  </div>
+
+                </div>
+              </div>
+
+              <div className="vt education-node">
+                <div className="education-header">
+                  <span style={{ color: "#E87722" }}>Virginia</span>{" "}
+                  <span style={{ color: "#861F41" }}>Tech</span>
+                </div>
+                <div className="education-subheader">{MAP_ICON} Blacksburg, VA</div>
+              </div>
+
+            </Fade>
+
+
+          </div>
+
+      </Fade>
+      
+
+
+
+      <div className="background">
+
+          <Typewriter text={CODE_TEXT} speedMsPerChar={50}></Typewriter>
+
+      </div>
     </div>
   );
 }
