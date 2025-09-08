@@ -228,15 +228,15 @@ export default function Home() {
                 <ProjectCard
                     title="Text Cropping Algorithm"
                     description="Using PIL to efficiently detect text in 500+ page documents and crop all margin whitespace."
-                    image="https://placehold.co/600x400?text=Text+Cropping"
+                    image="https://images.unsplash.com/photo-1517512006864-7edc3b933137?q=80&w=1200&auto=format&fit=crop"
                     tags={["Python", "PIL", "Image Analysis"]}
                     link="."
                   />
                 <ProjectCard
-                    title="Drone Racing Visualization"
-                    description="Using public data on drone racing to generate immersive 3D replays of races."
-                    image="https://placehold.co/600x400?text=Drone+Racing"
-                    tags={["React", "Three.js", "Rust"]}
+                    title="F1 Replay Engine"
+                    description="Using data on F1 races to build an immersive and interactive replay viewer."
+                    image="https://placehold.co/600x400?text=F1+Racing"
+                    tags={["React", "OpenF1", "Three.js"]}
                     link="."
                   />
                 <ProjectCard

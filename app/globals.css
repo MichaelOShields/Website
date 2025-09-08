@@ -260,7 +260,7 @@ p { margin-block: 0; }
   line-height: 1.5;
   user-select: none;
   font-size: 1.5rem;
-  opacity: .3;
+  opacity: .4;
 
   display:flex;
 }
@@ -293,7 +293,7 @@ p { margin-block: 0; }
 
 .resume-header {
   justify-self: center;
-  font-size:1.5rem;
+  font-size:1.8rem;
 }
 
 
@@ -310,7 +310,7 @@ p { margin-block: 0; }
 
 .project-cards {
   display:grid;
-  gap: 2rem;
+  gap: 5rem;
 
   grid-template-columns: repeat(2, 1fr);
 
