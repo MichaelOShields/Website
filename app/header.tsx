@@ -66,7 +66,7 @@ export default function Header() {
             <Link className="ribbon-item link" href="mailto:michaelolivershields@outlook.com">
                 {MAIL_ICON} Email
             </Link>
-            <Link className="ribbon-item link" target="_blank" href="https://www.linkedin.com/in/michael-shields-07844a367/">
+            <Link className="ribbon-item link" target="_blank" href="https://www.linkedin.com/in/michaeloshields/">
                 {LINKEDIN_ICON} LinkedIn
             </Link>
             </nav>
