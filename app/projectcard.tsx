@@ -10,6 +10,7 @@ type ProjectCardProps = {
   link?: string;
   complete?: boolean;
   newTab?:boolean;
+  year?: string;
 };
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -20,6 +21,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   link,
   complete = true,
   newTab = true,
+  year,
 }) => {
   return (
     <div className="project-card">
@@ -35,13 +37,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       )}
 
       <div className="content">
-        {link ? (
-          <a href={link} target={newTab ? "_blank" : ""} rel="noreferrer" className="card-title">
-            {title} {EXTERNAL_LINK_ICON}
-          </a>
-        ) : (
-          <h3 className="card-title">{title}</h3>
-        )}
+        <div className="card-title-year">
+          {link ? (
+            <a href={link} target={newTab ? "_blank" : ""} rel="noreferrer" className="card-title">
+              {title} {EXTERNAL_LINK_ICON}
+            </a>
+          ) : (
+            <div className="card-title">{title}</div>
+          )}
+          {year ? (
+            <div className="card-year">{year}</div>
+          ) : (
+            null
+          )}
+        </div>
         <p className="description">{description}</p>
         {tags.length > 0 && (
           <div className="tags">

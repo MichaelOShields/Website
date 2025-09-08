@@ -208,6 +208,7 @@ export default function Home() {
                   image={antPng}
                   tags={["Python", "ML", "Pygame"]}
                   link="https://github.com/MichaelOShields/Ant-Colony-Simulation"
+                  year="2024"
                 />
                 <ProjectCard
                     title="Inkwell"
@@ -216,6 +217,7 @@ export default function Home() {
                     tags={["Tauri", "Rust", "React"]}
                     link="https://inkwellnotes.com/"
                     complete={false}
+                    year="2025"
                   />
                 <ProjectCard
                     title="Website"
@@ -224,6 +226,7 @@ export default function Home() {
                     tags={["NextJS", "React", "CSS"]}
                     link="."
                     newTab={false}
+                    year="2025"
                   />
                 <ProjectCard
                     title="Text Cropping Algorithm"
@@ -231,6 +234,7 @@ export default function Home() {
                     image="https://images.unsplash.com/photo-1517512006864-7edc3b933137?q=80&w=1200&auto=format&fit=crop"
                     tags={["Python", "PIL", "Image Analysis"]}
                     link="."
+                    year="2024"
                   />
                 <ProjectCard
                     title="F1 Replay Engine"
@@ -238,6 +242,7 @@ export default function Home() {
                     image="https://placehold.co/600x400?text=F1+Racing"
                     tags={["React", "OpenF1", "Three.js"]}
                     link="https://github.com/MichaelOShields/F1-Replay-Engine"
+                    year="2025"
                   />
                 <ProjectCard
                     title="Gimkit Automation"
@@ -245,6 +250,7 @@ export default function Home() {
                     image="https://placehold.co/600x400?text=Gimkit+Bot"
                     tags={["Python", "Selenium"]}
                     link="."
+                    year="2023"
                   />
             </Fade>
 

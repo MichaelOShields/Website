@@ -359,6 +359,11 @@ p { margin-block: 0; }
   object-position: center;  /* keeps the middle visible */
 }
 
+.card-title-year {
+  display:flex;
+  flex-direction:row;
+}
+
 .project-img-container .ongoing-tag {
   display:flex;
   margin: 0 auto;
@@ -405,6 +410,14 @@ p { margin-block: 0; }
   justify-content: center;
   justify-items:center;
   padding: .5rem 1rem;
+  padding-right:0;
+}
+
+.project-card .card-year {
+  margin-left:auto;
+  top:4.5rem;
+  right:2rem;
+  position:absolute;
 }
 
 a {
