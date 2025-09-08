@@ -237,7 +237,7 @@ export default function Home() {
                     description="Using data on F1 races to build an immersive and interactive replay viewer."
                     image="https://placehold.co/600x400?text=F1+Racing"
                     tags={["React", "OpenF1", "Three.js"]}
-                    link="."
+                    link="https://github.com/MichaelOShields/F1-Replay-Engine"
                   />
                 <ProjectCard
                     title="Gimkit Automation"
