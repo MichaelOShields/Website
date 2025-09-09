@@ -184,7 +184,7 @@ export default function Home() {
       </Fade>
       <div className="hero" role="main">
         <Fade delay={.2}>
-          <h1 className="title"><span className="redtext">{`<`}</span>Michael Shields<span className="redtext">{`>`}</span></h1>
+          <h1 className="title">Michael Shields</h1>
         </Fade>
         <Fade delay={.5}><div className="subtitle">Computer Science</div></Fade>
         <Fade delay={.7}><div className="location">
