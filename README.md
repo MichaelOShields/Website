@@ -1,3 +1,3 @@
 # Personal Website
 
-A website I made to display my accomplishments.
+A website acting as a portfolio.
