@@ -6,6 +6,16 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Agency FB';
+  src: url("./fonts/AGENCYB.TTF") format("truetype");
+  font-display:swap;
+}
+
+.F1 {
+  font-family: 'Agency FB';
+}
+
 /* ===== Theme tokens ===== */
 :root {
   /* Colors (light) */
@@ -34,7 +44,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #0b0b10;
-    --text: #f3f4f6;
+    --text: rgb(252,247,239);
     --muted: #a1a7b3;
     --primary: #3c22be;
 
@@ -58,7 +68,7 @@ html, body {
     radial-gradient(1200px 800px at 10% -10%, rgba(110,86,207,0.10), transparent 100%),
     radial-gradient(900px 700px at 100% 0%, rgba(155,138,241,0.12), transparent 100%),
     linear-gradient(180deg, var(--bg), var(--bg)); */
-  background-color:rgb(11, 12, 13);
+  background-color:rgb(13,14,14);
   background-attachment: fixed; /* optional */
 }
 
@@ -357,7 +367,11 @@ p { margin-block: 0; }
 }
 
 .red {
-  box-shadow: rgba(255, 0,0, 0.5) 0px 2px 8px 0px;
+  box-shadow: rgba(232,42,39, 1) 0px 2px 8px 0px;
+}
+
+.redtext {
+  color: rgb(232,42,39);
 }
 
 .navy {

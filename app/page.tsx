@@ -184,7 +184,7 @@ export default function Home() {
       </Fade>
       <div className="hero" role="main">
         <Fade delay={.2}>
-          <h1 className="title">Michael Shields</h1>
+          <h1 className="title"><span className="redtext">{`<`}</span>Michael Shields<span className="redtext">{`>`}</span></h1>
         </Fade>
         <Fade delay={.5}><div className="subtitle">Computer Science</div></Fade>
         <Fade delay={.7}><div className="location">
@@ -201,7 +201,7 @@ export default function Home() {
           <div className="projects">
             
 
-            <h2 className="resume-header">Projects</h2>
+            <h2 className="resume-header"><span className="redtext">{`<`}</span> Projects <span className="redtext">{`>`}</span></h2>
 
             <Fade className="project-cards" delay={1.5}>
                 <ProjectCard
@@ -262,7 +262,7 @@ export default function Home() {
           <div className="education">
             
 
-            <h2 className="resume-header">Education</h2>
+            <h2 className="resume-header"><span className="redtext">{`<`}</span> Education <span className="redtext">{`>`}</span></h2>
 
             <Fade className="education-nodes" delay={1.5}>
               
