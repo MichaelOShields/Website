@@ -301,7 +301,7 @@ p { margin-block: 0; }
   width:100vw;
   position:absolute;
   top:40%;
-  user-select:none;
+  /* user-select:none; */
 }
 
 .resume-header {
@@ -331,6 +331,9 @@ p { margin-block: 0; }
 }
 
 
+/* colors */
+
+
 .project-card {
   display: grid;
   grid-template-rows: auto 1fr auto auto;
@@ -345,9 +348,54 @@ p { margin-block: 0; }
 
   z-index:1;
 
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  /* box-shadow: rgba(99, 99, 99, 0.5) 0px 2px 8px 0px; */
   /* color:transparent; */
 }
+.blank {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.red {
+  box-shadow: rgba(255, 0,0, 0.5) 0px 2px 8px 0px;
+}
+
+.navy {
+  box-shadow: rgba(0, 0, 255, 0.5) 0px 2px 8px 0px;
+}
+
+.green {
+  box-shadow: rgba(0, 128, 0, 0.5) 0px 2px 8px 0px;
+}
+
+.purple {
+  box-shadow: rgba(128, 0, 128, 0.5) 0px 2px 8px 0px;
+}
+
+.cyan {
+  box-shadow: rgba(0, 255, 255, 0.5) 0px 2px 8px 0px;
+}
+
+.pink {
+  box-shadow: rgba(255, 20, 147, 0.5) 0px 2px 8px 0px;
+}
+
+.yellow {
+  box-shadow: rgba(255, 255, 0, 0.5) 0px 2px 8px 0px;
+}
+
+.teal {
+  box-shadow: rgba(0, 128, 128, 0.5) 0px 2px 8px 0px;
+}
+
+.gray {
+  box-shadow: rgba(128, 128, 128, 0.5) 0px 2px 8px 0px;
+}
+
+.black {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 8px 0px;
+}
+
+
 
 .project-card:hover {
   transform: translateY(-1%);

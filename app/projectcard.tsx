@@ -11,6 +11,7 @@ type ProjectCardProps = {
   complete?: boolean;
   newTab?:boolean;
   year?: string;
+  color?:string; // red, blue, purple, etc
 };
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -22,9 +23,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   complete = true,
   newTab = true,
   year,
+  color,
 }) => {
   return (
-    <div className="project-card">
+    <div className={`project-card ${color ? color : 'blank'}`}>
       {image && (
         <div className="project-img-container">
           <img src={typeof image === "string" ? image : image?.src} alt={title} />

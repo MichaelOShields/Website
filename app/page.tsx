@@ -12,6 +12,7 @@ import antPng from "../public/ants.png";
 import inkwDemo from "../public/inkwell-demo.png";
 import webDemo from '../public/websiteDemo.png';
 import car from '../public/car.png';
+import shop from "../public/gimkit_shop.png";
 
 type FadeProps = {
   delay?: number;
@@ -219,14 +220,15 @@ export default function Home() {
                     link="https://inkwellnotes.com/"
                     complete={false}
                     year="2025"
+                    color="purple"
                   />
                 <ProjectCard
                     title="Website"
                     description="A website overviewing my accomplishments."
                     image={webDemo}
                     tags={["NextJS", "React", "CSS"]}
-                    link="."
                     newTab={false}
+                    link="."
                     year="2025"
                   />
                 <ProjectCard
@@ -234,7 +236,6 @@ export default function Home() {
                     description="Using PIL to efficiently detect text in 500+ page documents and crop all margin whitespace."
                     image="https://images.unsplash.com/photo-1517512006864-7edc3b933137?q=80&w=1200&auto=format&fit=crop"
                     tags={["Python", "PIL", "Image Analysis"]}
-                    link="."
                     year="2024"
                   />
                 <ProjectCard
@@ -244,13 +245,13 @@ export default function Home() {
                     tags={["React", "OpenF1", "Three.js"]}
                     link="https://github.com/MichaelOShields/F1-Replay-Engine"
                     year="2025"
+                    color="red"
                   />
                 <ProjectCard
                     title="Gimkit Automation"
-                    description="Playing an education game, learning answers, interacting with the website to buy upgrades."
-                    image="https://placehold.co/600x400?text=Gimkit+Bot"
+                    description="Algorithmically playing an education game, learning answers, and interacting with the website to buy upgrades."
+                    image={shop}
                     tags={["Python", "Selenium"]}
-                    link="."
                     year="2023"
                   />
             </Fade>
