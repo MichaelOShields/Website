@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { GITHUB_ICON, LINKEDIN_ICON, MAIL_ICON } from "./svgs";
+import { DOWNLOAD_ICON, GITHUB_ICON, LINKEDIN_ICON, MAIL_ICON } from "./svgs";
 
 export default function Header() {
     const [scrolled, setScrolled] = useState(false);
@@ -68,6 +68,9 @@ export default function Header() {
             </Link>
             <Link className="ribbon-item link" target="_blank" href="https://www.linkedin.com/in/michaeloshields/">
                 {LINKEDIN_ICON} LinkedIn
+            </Link>
+            <Link className="ribbon-item link" target="_blank" href="/resume.pdf">
+                {DOWNLOAD_ICON} Resume
             </Link>
             </nav>
 

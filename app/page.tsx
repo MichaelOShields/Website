@@ -224,7 +224,7 @@ export default function Home() {
                   />
                 <ProjectCard
                     title="Website"
-                    description="A website overviewing my accomplishments."
+                    description="A website overviewing my accomplishments, acting as an accessible portfolio."
                     image={webDemo}
                     tags={["NextJS", "React", "CSS"]}
                     newTab={false}
