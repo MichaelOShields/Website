@@ -323,7 +323,7 @@ p { margin-block: 0; }
 
 .project-cards {
   display:grid;
-  gap: 3rem;
+  gap: 5rem;
 
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto auto 1fr;
