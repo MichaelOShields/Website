@@ -4,13 +4,14 @@ import Header from "./header";
 import { motion } from "framer-motion";
 import { JSX, ReactElement, ReactHTMLElement, useEffect, useState, type ReactNode } from "react";
 import React from "react";
-import { BADGE_CHECK_ICON, CPU_ICON, GRADUATION_CAP_ICON, MAP_ICON, SCHOOL_ICON } from "./svgs";
+import { BADGE_CHECK_ICON, BELT_ICON, CPU_ICON, GRADUATION_CAP_ICON, MAP_ICON, SCHOOL_ICON } from "./svgs";
 import ProjectCard from "./projectcard";
 
 import logoWhite from "../public/logo-title-white.png";
 import antPng from "../public/ants.png";
 import inkwDemo from "../public/inkwell-demo.png";
 import webDemo from '../public/websiteDemo.png';
+import car from '../public/car.png';
 
 type FadeProps = {
   delay?: number;
@@ -184,24 +185,24 @@ export default function Home() {
         <Fade delay={.2}>
           <h1 className="title">Michael Shields</h1>
         </Fade>
-        <Fade delay={.35}><p className="subtitle">Computer Science</p></Fade>
-        <Fade delay={.5}><p className="location">
+        <Fade delay={.5}><div className="subtitle">Computer Science</div></Fade>
+        <Fade delay={.7}><div className="location">
           <span className="maroon">{GRADUATION_CAP_ICON}</span> <span className="orange">Virginia</span> <span className="maroon">Tech</span>
-          
-          </p></Fade>
+        </div></Fade>
+        <Fade delay={.9}><div className="belt">{BELT_ICON} Taekwondo Black Belt</div></Fade>
 
 
 
       </div>
 
-      <Fade className="resume" delay={.6}>
+      <Fade className="resume" delay={1.2}>
 
           <div className="projects">
             
 
             <h2 className="resume-header">Projects</h2>
 
-            <Fade className="project-cards" delay={1}>
+            <Fade className="project-cards" delay={1.5}>
                 <ProjectCard
                   title="Ant Colony Simulation"
                   description="Using reinforcement learning to teach an ant with limited information to search for food."
@@ -239,7 +240,7 @@ export default function Home() {
                 <ProjectCard
                     title="F1 Replay Engine"
                     description="Using data on F1 races to build an immersive and interactive replay viewer."
-                    image="https://placehold.co/600x400?text=F1+Racing"
+                    image={car}
                     tags={["React", "OpenF1", "Three.js"]}
                     link="https://github.com/MichaelOShields/F1-Replay-Engine"
                     year="2025"
@@ -262,7 +263,7 @@ export default function Home() {
 
             <h2 className="resume-header">Education</h2>
 
-            <Fade className="education-nodes" delay={1}>
+            <Fade className="education-nodes" delay={1.5}>
               
               <div className="yorktown education-node">
                 <div className="education-header">

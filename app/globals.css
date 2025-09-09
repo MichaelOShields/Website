@@ -223,7 +223,7 @@ html, body {
   letter-spacing: .02rem;
 }
 
-.location {
+.belt {
   font-size: 1rem;
   color: var(--muted);
   max-width: 56ch;
@@ -233,6 +233,19 @@ html, body {
   align-items: center;
   justify-content: center;
   gap:.4rem;
+}
+
+.location {
+  font-size: 1.3rem;
+  color: var(--muted);
+  max-width: 56ch;
+  margin: 0 auto;
+  letter-spacing: .02rem;
+  display:inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap:.4rem;
+  margin-bottom: .1rem;
 }
 
 
@@ -416,7 +429,7 @@ p { margin-block: 0; }
 .project-card .card-year {
   margin-left:auto;
   top:4.5rem;
-  right:2rem;
+  right:.5rem;
   position:absolute;
 }
 
