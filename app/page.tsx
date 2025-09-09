@@ -213,7 +213,7 @@ export default function Home() {
                   year="2024"
                 />
                 <ProjectCard
-                    title="Inkwell"
+                    title="Inkwell (WIP)"
                     description="A minimalist note taking app, built for responsiveness and ease of use."
                     image={inkwDemo}
                     tags={["Tauri", "Rust", "React"]}
@@ -239,7 +239,7 @@ export default function Home() {
                     year="2024"
                   />
                 <ProjectCard
-                    title="F1 Replay Engine"
+                    title="F1 Replay Engine (WIP)"
                     description="Using data on F1 races to build an immersive and interactive replay viewer."
                     image={car}
                     tags={["React", "OpenF1", "Three.js"]}
