@@ -19,11 +19,10 @@
 
 /* ===== Theme tokens ===== */
 :root {
-  /* Colors (light) */
-  --bg: #ffffff;
-  --text: #111114;
-  --muted: #6b7280;
-  --primary: #6e56cf; /* violet */
+  --bg: #0b0b10;
+  --text: rgb(252,247,239);
+  --muted: #a1a7b3;
+  --primary: #3c22be;
 
   /* Layout */
   --header-h: 64px;
@@ -42,18 +41,16 @@
   --highlight: oklch(0.45 0.02 300);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --bg: #0b0b10;
     --text: rgb(252,247,239);
     --muted: #a1a7b3;
     --primary: #3c22be;
-
-    /* Logos: dark theme uses light artwork */
     --logo-url: url("/logo-title-white.svg");
     --icon-url: url("/icon.svg");
   }
-}
+} */
 
 /* ===== Base ===== */
 * { box-sizing: border-box; }
