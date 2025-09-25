@@ -8,11 +8,6 @@ import SQLLogo from '../public/sqllogo.png';
 import ScrapingLogo from '../public/scrapinglogo.png';
 import { StaticImageData } from "next/image";
 
-function getRemSizeInPixels() {
-    const rootElementComputedStyle = getComputedStyle(document.documentElement);
-    return parseFloat(rootElementComputedStyle.fontSize);
-}
-
 type CircleProps = {
     size?: number;
     color?: string;
@@ -46,8 +41,7 @@ const Wheel: React.FC<CircleProps> = ({
         <div className="wheel-wrapper" style={{ position: "relative", width: size, height: size }} {...rest}>
             <div className="wheel">
                 {wheelComponents.map((comp, idx) => {
-                    const rem = getRemSizeInPixels();
-                    const itemSize = 4 * rem;
+                    const itemSize = 4 * 16;
                     const radius = (size / 2) + (itemSize / 2);
                     const angle = idx * (360 / wheelComponents.length);
                     const rad = angle * Math.PI / 180;
