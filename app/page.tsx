@@ -13,6 +13,7 @@ import inkwDemo from "../public/inkwell-demo.png";
 import webDemo from '../public/websiteDemo.png';
 import car from '../public/car.png';
 import shop from "../public/gimkit_shop.png";
+import Wheel from "./Wheel";
 
 type FadeProps = {
   delay?: number;
@@ -259,7 +260,7 @@ export default function Home() {
 
           </div>
 
-          <div className="education">
+          {/* <div className="education">
             
 
             <h2 className="resume-header">Education</h2>
@@ -302,6 +303,17 @@ export default function Home() {
 
             </Fade>
 
+
+          </div> */}
+
+          <div className="experience">
+            <h2 className="resume-header">Experience</h2>
+            <Fade className="education-nodes" delay={1.5}>
+
+              <Wheel></Wheel>
+            </Fade>
+
+            
 
           </div>
 
