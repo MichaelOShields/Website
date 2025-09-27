@@ -12,9 +12,10 @@ type CircleProps = {
     size?: number;
     color?: string;
     style?: React.CSSProperties;
-};
-
-type WheelComponentProps = {
+    setLastHovered: React.Dispatch<React.SetStateAction<WheelComponentProps | null>>;
+    lastHovered: WheelComponentProps | null;
+}
+export type WheelComponentProps = {
     text: string;
     id: string;
     image: StaticImageData;
@@ -33,9 +34,10 @@ const wheelComponents: WheelComponentProps[] = [
 const Wheel: React.FC<CircleProps> = ({
     size = 300,
     style = {},
+    lastHovered,
+    setLastHovered,
     ...rest
 }) => {
-    const [lastHovered, setLastHovered] = React.useState<WheelComponentProps | null>(null);
 
     return (
         <div className="wheel-wrapper" style={{ position: "relative", width: size, height: size }} {...rest}>

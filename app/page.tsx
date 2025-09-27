@@ -13,7 +13,7 @@ import inkwDemo from "../public/inkwell-demo.png";
 import webDemo from '../public/websiteDemo.png';
 import car from '../public/car.png';
 import shop from "../public/gimkit_shop.png";
-import Wheel from "./Wheel";
+import Wheel, { WheelComponentProps } from "./Wheel";
 
 type FadeProps = {
   delay?: number;
@@ -176,6 +176,9 @@ displayTitle, filename, onClick, i, selectedFilePath, title, handleRightClick, p
 
 
 export default function Home() {
+  const [lastHovered, setLastHovered] = useState<WheelComponentProps | null>(null);
+
+
   return (
     <div className="page">
       <Fade delay={0}>
@@ -306,11 +309,13 @@ export default function Home() {
 
           </div> */}
 
-          <div className="experience">
+          <div className="experience" onMouseLeave={(e) => {
+            setLastHovered(null);
+          }}>
             <h2 className="resume-header">Experience</h2>
             <Fade className="education-nodes" delay={1.5}>
 
-              <Wheel></Wheel>
+              <Wheel lastHovered={lastHovered} setLastHovered={setLastHovered}></Wheel>
             </Fade>
 
             
