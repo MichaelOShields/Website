@@ -310,6 +310,7 @@ p { margin-block: 0; }
   position:absolute;
   top:40%;
   /* user-select:none; */
+  padding-bottom:10vh;
 }
 
 .resume-header {

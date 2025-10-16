@@ -242,7 +242,7 @@ export default function Home() {
                     tags={["Python", "PIL", "Image Analysis"]}
                     year="2024"
                   />
-                <ProjectCard
+                {/* <ProjectCard
                     title="F1 Replay Engine (WIP)"
                     description="Using data on F1 races to build an immersive and interactive replay viewer."
                     image={car}
@@ -250,7 +250,7 @@ export default function Home() {
                     link="https://github.com/MichaelOShields/F1-Replay-Engine"
                     year="2025"
                     color="red"
-                  />
+                  /> */}
                 <ProjectCard
                     title="Gimkit Automation"
                     description="Algorithmically playing an education game, learning answers, and interacting with the website to buy upgrades."
