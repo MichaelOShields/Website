@@ -13,6 +13,7 @@ import inkwDemo from "../public/inkwell-demo.png";
 import webDemo from '../public/websiteDemo.png';
 import car from '../public/car.png';
 import shop from "../public/gimkit_shop.png";
+import os from "../public/os.png";
 import Wheel, { WheelComponentProps } from "./Wheel";
 
 type FadeProps = {
@@ -208,6 +209,22 @@ export default function Home() {
             <h2 className="resume-header">Projects</h2>
 
             <Fade className="project-cards" delay={1.5}>
+              <ProjectCard
+                  title="Virtual  Machine"
+                  description="A simulated virtual machine with a custom ISA. Created an assembly language for the ISA and wrote a kernel on it."
+                  image={os}
+                  tags={["Rust", "ASM", "OS"]}
+                  newTab={true}
+                  link="https://github.com/MichaelOShields/Virtual-Machine"
+                  year="2026"
+                />
+                <ProjectCard
+                  title="Text Cropping Algorithm"
+                  description="Using PIL to efficiently detect text in 500+ page documents and crop all margin whitespace."
+                  image="https://images.unsplash.com/photo-1517512006864-7edc3b933137?q=80&w=1200&auto=format&fit=crop"
+                  tags={["Python", "PIL", "Image Analysis"]}
+                  year="2024"
+                />
                 <ProjectCard
                   title="Ant Colony Simulation"
                   description="Using reinforcement learning to teach an ant with limited information to search for food."
@@ -216,7 +233,7 @@ export default function Home() {
                   link="https://github.com/MichaelOShields/Ant-Colony-Simulation"
                   year="2024"
                 />
-                <ProjectCard
+                {/* <ProjectCard
                     title="Inkwell (WIP)"
                     description="A minimalist note taking app, built for responsiveness and ease of use."
                     image={inkwDemo}
@@ -225,7 +242,7 @@ export default function Home() {
                     complete={false}
                     year="2025"
                     color="purple"
-                  />
+                  /> */}
                 <ProjectCard
                     title="Website"
                     description="A website overviewing my accomplishments, acting as an accessible portfolio."
@@ -234,13 +251,6 @@ export default function Home() {
                     newTab={false}
                     link="."
                     year="2025"
-                  />
-                <ProjectCard
-                    title="Text Cropping Algorithm"
-                    description="Using PIL to efficiently detect text in 500+ page documents and crop all margin whitespace."
-                    image="https://images.unsplash.com/photo-1517512006864-7edc3b933137?q=80&w=1200&auto=format&fit=crop"
-                    tags={["Python", "PIL", "Image Analysis"]}
-                    year="2024"
                   />
                 {/* <ProjectCard
                     title="F1 Replay Engine (WIP)"

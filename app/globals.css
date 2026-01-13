@@ -17,24 +17,20 @@
   font-size:5rem;
 }
 
-/* ===== Theme tokens ===== */
 :root {
   --bg: #0b0b10;
   --text: rgb(252,247,239);
   --muted: #a1a7b3;
   --primary: #3c22be;
 
-  /* Layout */
   --header-h: 64px;
   --pad-x: clamp(16px, 4vw, 40px);
   --pad-y: .5rem;
   --max-w: 1120px;
 
-  /* Effects */
   --ring: 2px solid #7c7cff;
   --shadow-elev: 0 10px 30px rgba(0,0,0,.12);
 
-  /* Logos: light theme should use dark artwork */
   --logo-url: url("/logo-title-black.svg");
   --icon-url: url("/icon.svg");
 
@@ -97,7 +93,6 @@ html, body {
 }
 
 .header > * {
-  /* Center content on wide screens without constraining the blur area */
   max-width: var(--max-w);
   width: 100%;
   margin-inline: auto;
@@ -286,14 +281,14 @@ p { margin-block: 0; }
   display:flex;
 }
 
-.kw       { color: #c678dd; font-weight: 500; }   /* purple */
-.type     { color: #e5c07b; font-style: italic; } /* yellow-ish */
-.fn       { color: #61afef; }                     /* blue */
-.str      { color: #98c379; }                     /* green */
-.num      { color: #d19a66; }                     /* orange */
-.punct    { color: #abb2bf; }                     /* gray */
-.op       { color: #56b6c2; }                     /* teal */
-.comment  { color: #5c6370; font-style: italic; } /* faded gray */
+.kw       { color: #c678dd; font-weight: 500; }  
+.type     { color: #e5c07b; font-style: italic; }
+.fn       { color: #61afef; } 
+.str      { color: #98c379; } 
+.num      { color: #d19a66; } 
+.punct    { color: #abb2bf; } 
+.op       { color: #56b6c2; } 
+.comment  { color: #5c6370; font-style: italic; }
 
 .lucide {
   padding:0;  
@@ -430,8 +425,8 @@ p { margin-block: 0; }
 .project-img-container img {
   width: 100%;
   height: 100%;
-  object-fit: cover;        /* scales the image */
-  object-position: center;  /* keeps the middle visible */
+  object-fit: cover;   
+  object-position: center;
 }
 
 .card-title-year {
@@ -498,12 +493,10 @@ p { margin-block: 0; }
 }
 
 a {
-  color: inherit; /* blue colors for links too */
-  text-decoration: inherit; /* no underline */
-}
+  color: inherit; 
+  text-decoration: inherit}
 
 
-/* education */
 .education-nodes {
   display: flex;
   flex-direction: column;
@@ -516,14 +509,12 @@ a {
   
 }
 
-/* School name */
 .education-header {
   font-weight: 700;
   font-size: 1.3rem;
   color: var(--text, #fff);
 }
 
-/* Subheader (location) */
 .education-subheader {
   font-size: 0.95rem;
   color: var(--muted, #aaa);
@@ -701,7 +692,7 @@ html, body { overflow-x: hidden; }
   /* z-index:5; */
 
   transition: transform 0.3s ease;
-  will-change: transform; /* hint the GPU */
+  will-change: transform;
 }
 
 
@@ -748,6 +739,10 @@ html, body { overflow-x: hidden; }
 }
 
 .wheel-center-years {
+  font-size: 0.9rem;
+}
+
+.wheel-center-sub {
   font-size: 0.9rem;
 }
 

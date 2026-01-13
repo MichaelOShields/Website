@@ -6,6 +6,8 @@ import TauriLogo from '../public/taurilogo.png';
 import DataLogo from '../public/datalogo.png';
 import SQLLogo from '../public/sqllogo.png';
 import ScrapingLogo from '../public/scrapinglogo.png';
+import RustLogo from "../public/rustlogo.png";
+import DNALogo from "../public/DNALogo.png";
 import { StaticImageData } from "next/image";
 
 type CircleProps = {
@@ -19,16 +21,19 @@ export type WheelComponentProps = {
     text: string;
     id: string;
     image: StaticImageData;
-    years: number;
+    percent: number;
 };
 
 const wheelComponents: WheelComponentProps[] = [
-    { id: 'JavaScript', text: '', image: JSLogo, years: 2.5 },
-    { id: 'PyTorch', text: '', image: PyTorchLogo, years: 3 },
-    { id: 'Web Scraping', text: '', image: ScrapingLogo, years: 4 },
-    { id: 'Tauri', text: '', image: TauriLogo, years: 2 },
-    { id: 'SQL', text: '', image: SQLLogo, years: 1 },
-    { id: 'Python', text: '', image: PythonLogo, years: 7 },
+    // { id: 'JavaScript', text: '', image: JSLogo, percent: 35 },
+    /*{ id: 'PyTorch', text: '', image: PyTorchLogo, percent: 3 },*/
+    // { id: 'Web Scraping', text: '', image: ScrapingLogo, percent: 45 },
+    { id: 'Tauri', text: '', image: TauriLogo, percent: 15 },
+    
+    /*{ id: 'SQL', text: '', image: SQLLogo, percent: 1 },*/
+    { id: 'Python', text: '', image: PythonLogo, percent: 65 },
+    { id: 'Rust', text: '', image: RustLogo, percent: 30 },
+    { id: 'DNAsm', text: 'An assembly language I made for my virtual machine.', image: DNALogo, percent: 100 },
 ];
 
 const Wheel: React.FC<CircleProps> = ({
@@ -89,11 +94,12 @@ const Wheel: React.FC<CircleProps> = ({
                 {lastHovered ? (
                     <>
                         <div className="wheel-center-id">{lastHovered.id}</div>
-                        <div className="wheel-center-years">{lastHovered.years} {lastHovered.years != 1 ? "years" : 'year'}</div>
+                        <div className="wheel-center-percent">{lastHovered.percent}%</div>
+                        <div className="wheel-center-sub">{lastHovered.text}</div>
                         <div className="progress-container">
                         <div
                             className="progress-bar"
-                            style={{ width: `${(lastHovered.years / 5) * 100}%` }}
+                            style={{ width: `${(lastHovered.percent / 100) * 100}%` }}
                             />
                         </div>
                         <div className="wheel-center-img-wrapper">
