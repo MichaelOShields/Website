@@ -191,7 +191,7 @@ export default function Home() {
         <Fade delay={.2}>
           <h1 className="title">Michael Shields</h1>
         </Fade>
-        <Fade delay={.5}><div className="subtitle">Computer Science</div></Fade>
+        <Fade delay={.5}><div className="subtitle">Computer Engineering</div></Fade>
         <Fade delay={.7}><div className="location">
           <span className="maroon">{GRADUATION_CAP_ICON}</span> <span className="orange">Virginia</span> <span className="maroon">Tech</span>
         </div></Fade>
